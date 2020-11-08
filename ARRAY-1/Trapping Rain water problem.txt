@@ -1,0 +1,38 @@
+int Solution::trap(const vector<int> &A) {
+    int max_index=0;
+    int fir=A[0];
+    for(int i=1;i<A.size();i++)
+    {
+        if(A[i]>fir)
+        {
+            fir=A[i];
+            max_index=i;
+        }
+    }
+    int ans=0;
+    int l=A[0];
+    int r=A[A.size()-1];
+    for(int i=1;i<max_index;i++)
+    {
+        if(l<=A[i])
+        {
+            l=A[i];
+        }
+        else
+        {
+            ans+=l-A[i];
+        }
+    }
+    for(int i=A.size()-2;i>max_index;i--)
+    {
+        if(r<=A[i])
+        {
+            r=A[i];
+        }
+        else
+        {
+            ans+=r-A[i];
+        }
+    }
+    return ans;
+}

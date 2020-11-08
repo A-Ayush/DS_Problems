@@ -1,0 +1,41 @@
+void merge(int arr1[], int arr2[], int n, int m) {
+	    // code here
+	    int gap = ceil((double(n+m))/2);
+	    int c=0;
+	    //cout<<gap<<endl;
+	    while(1)
+	    {
+	        //cout<<gap<<endl;
+	        int p1 = 0;
+	        int p2 = gap;
+	        int j=0;
+	        while(p1<(n+m) && p2 <(n+m))
+	        {
+	            if(p1<n && p2<n)
+	            {
+	                if(arr1[p1] > arr1[p2])
+	                    swap(arr1[p1],arr1[p2]);
+	            }
+	            else
+	            if(p1<n && p2>=n)
+	            {
+	                j = p2 - n; 
+	                if(arr1[p1] > arr2[j])
+	                    swap(arr1[p1],arr2[j]);
+	                
+	            }
+	            else
+	            {
+	                if(arr2[p1-n] > arr2[p2-n])
+	                    swap(arr2[p1-n],arr2[p2-n]);
+	            }
+	            p1++;p2++;
+	        }
+	        gap = ceil(gap/2.0);
+	        if(gap==1)
+	            c++;
+	        
+	        if(c==2)
+	            break;
+	    }
+	}
