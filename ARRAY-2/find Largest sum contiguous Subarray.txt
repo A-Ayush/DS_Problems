@@ -1,0 +1,17 @@
+// Function to find subarray with maximum sum
+// arr: input array
+// n: size of array
+int maxSubarraySum(int arr[], int n){
+    
+    // Your code here
+    int sum = 0,sum_i=0;
+    for(int i=0;i<n;i++)
+    {
+        sum_i += arr[i];
+        sum = max(sum_i,sum);
+        if(sum_i < 0)
+            sum_i = 0;
+    }
+    return sum;
+    
+}
