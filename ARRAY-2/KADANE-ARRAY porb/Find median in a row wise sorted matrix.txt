@@ -1,0 +1,36 @@
+    int median(vector<vector<int>> &m, int r, int c){
+        // code here   
+        int max = INT_MIN;
+        int min = INT_MAX;
+        int n = r*c;
+        for(int i=0;i<r;i++)
+        {
+            if(m[i][0] < min)
+                min = m[i][0];
+            
+            if(m[i][c-1] > max)
+                max = m[i][c-1];
+        }
+        
+        int median = (n+1)/2;
+        while(min<max)
+        {
+            int mid = min + (max - min)/2;
+            int elements = 0;
+            for(int i=0;i<r;i++)
+            {
+                for(int j=0;j<c;j++)
+                {
+                    if(m[i][j] <= mid)
+                        elements++;
+                }
+            }
+            //cout<<elements<<endl;
+            if(elements < median)
+                min = mid + 1;
+            else
+                max = mid;
+        }
+        
+        return min;
+    }
