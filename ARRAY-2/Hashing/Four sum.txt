@@ -1,0 +1,52 @@
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) 
+    {
+        vector< vector<int> > ans;
+        if(nums.size()<4)
+            return ans;
+        
+        sort(nums.begin(),nums.end());
+        set<vector<int>> s;
+        
+        for(int i=0;i<nums.size()-3;i++)
+        {
+            
+            for(int j=i+1;j<nums.size()-2;j++)
+            {
+                int last = nums.size()-1;
+                int third = j+1;
+                while(third < last)
+                {
+                    int sum = nums[i] + nums[j] + nums[third] + nums[last];
+                    if(sum == target)
+                    {
+                        vector<int> v(4);
+                        v[0] = nums[i];
+                        v[1] = nums[j];
+                        v[2] = nums[third];
+                        v[3] = nums[last];
+                        s.insert(v);
+                        third++;
+                        last--;
+                    }
+                    else
+                    if(sum<target)
+                        third++;
+                    else
+                        last--;
+                }
+                
+            }
+        }
+        // cout<<s.size();
+        for(auto it = s.begin();it!=s.end();it++)
+        {
+            //cout<<"here"<<endl;
+            vector<int> v = *it;
+            ans.push_back(v);
+        }
+        
+        return ans;
+    }
+};

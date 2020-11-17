@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    int arr[n];
+	    for(int i=0;i<n;i++)
+	        cin>>arr[i];
+	        
+	    int k;
+	    cin>>k;
+	    int index_of_neg = 0;   
+	    for(int i=k-1;i<n;i++)
+	    {
+	        while(index_of_neg < i && ((index_of_neg <= i - k) || (arr[index_of_neg] > 0)))
+	            index_of_neg++;
+	            
+	        int neg_num = arr[index_of_neg];
+	        if(neg_num>0)
+	            neg_num = 0;
+	            
+	        cout<<neg_num<<" ";
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
