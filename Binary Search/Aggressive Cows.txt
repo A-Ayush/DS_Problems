@@ -1,0 +1,26 @@
+int Solution::solve(vector<int> &A, int B) 
+{
+    sort(A.begin(),A.end());
+    long long i=1,j=1000000001,ans=0,l=0;
+    while(i<=j)
+    {
+        long long mid=((j+i)/2);
+        int fi=A[0],temp=1;
+        for(int k=1;k<A.size();k++)
+        {
+            if(A[k]-fi>=mid)
+            {
+                temp++,
+	fi=A[k];
+            }
+        }
+        if(temp<B)
+            j=mid-1;
+        else
+        {
+            ans=mid;
+            i=mid+1;
+        }
+    }
+    return ans;
+}
