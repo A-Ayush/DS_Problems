@@ -1,0 +1,49 @@
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) 
+    {
+        if(matrix.size() == 0 || matrix[0].size()==0)
+            return 0;
+        
+        int n=matrix.size();
+        int m=matrix[0].size();
+        
+        int req=-1;
+        for(int i=0;i<n;i++)
+        {
+            if(matrix[i][m-1] >= target)
+            {
+                req = i;
+                break;
+            }
+        }
+        if(req==-1)
+            return false;
+        
+        
+        int l=0;
+        int h=m-1;
+    
+        if(matrix[req].size()==1)
+        {
+            if(matrix[req][0] == target)
+                return true;
+            else
+                return false;
+        }
+        
+        while(l<=h)
+        {
+            int mid = l + (h-l)/2;
+            //cout<<matrix[req][mid]<<endl;
+            if(matrix[req][mid] == target)
+                return true;
+            
+            if(matrix[req][mid] > target)
+                h=mid-1;
+            else
+                l=mid+1;
+        }
+        return false;
+    }
+};
