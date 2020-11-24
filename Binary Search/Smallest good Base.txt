@@ -1,0 +1,31 @@
+typedef long long ll;
+class Solution {
+public:
+    string smallestGoodBase(string n) {
+        
+        for(int i=63;i>=0;i--)
+        {
+            int end=stoll(n) - 1;
+            int start=2;
+            while(start<=end)
+            {
+                ll mid = start + (end - start)/2;
+                ll sum=1,j=1;
+                ll m = mid;
+                while(j++<=i)
+                {
+                    sum += m;
+                    m=m*mid;
+                }
+                if(sum==stoll(n))
+                    return to_string(mid);
+                
+                if(sum>stoll(n))
+                    end = mid -1;
+                else
+                    start = mid + 1;
+            }
+        }
+        return to_string(stoll(n)-1);
+    }
+};

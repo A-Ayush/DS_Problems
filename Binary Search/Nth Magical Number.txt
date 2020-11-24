@@ -1,0 +1,25 @@
+typedef long long ll;
+const ll MOD = 1000000007;
+class Solution {
+public:
+    
+    int nthMagicalNumber(int N, int A, int B) 
+    {
+        ll left=2;
+        ll right=1e14,ans=0;
+        while(left<=right)
+        {
+            ll mid = left + (right - left)/2;
+            ll lcm_AB = (A*B)/__gcd(A,B);
+            ll req = ((mid/A) + (mid/B) - (mid/lcm_AB));
+            if(req<N)
+                left = mid+1;
+            else
+            {
+                ans = mid;
+                right = mid-1;
+            }
+        }
+        return ans%MOD;
+    }
+};
