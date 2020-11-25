@@ -1,0 +1,14 @@
+#include<bitset>
+unsigned int Solution::reverse(unsigned int A) 
+{
+    int n=32;
+    for(int i=0;i<16;i++)
+    {
+        int left = (A>>i) & 1;
+        int right = (A>>(n-i-1)) & 1;
+        if(left xor right){
+            A = A xor ((1U << i) | (1U << (n-i-1)));
+        }
+    }
+    return A;
+}
