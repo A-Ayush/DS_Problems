@@ -1,4 +1,4 @@
-//program for merge sort
+//program for merge sort using recursion
 #include <iostream>
 #define MAX 10
 using namespace std;
