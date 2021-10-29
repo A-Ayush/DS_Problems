@@ -1,4 +1,4 @@
-int Solution::trap(const vector<int> &A) {
+int Solution :: trap(const vector<int> &A) {
     int max_index=0;
     int fir=A[0];
     for(int i=1;i<A.size();i++)
