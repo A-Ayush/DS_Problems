@@ -5,7 +5,7 @@ void merge(int arr1[], int arr2[], int n, int m) {
 	    //cout<<gap<<endl;
 	    while(1)
 	    {
-	        //cout<<gap<<endl;
+	        
 	        int p1 = 0;
 	        int p2 = gap;
 	        int j=0;
