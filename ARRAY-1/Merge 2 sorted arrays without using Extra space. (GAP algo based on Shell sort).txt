@@ -2,7 +2,6 @@ void merge(int arr1[], int arr2[], int n, int m) {
 	    // code here
 	    int gap = ceil((double(n+m))/2);
 	    int c=0;
-	    //cout<<gap<<endl;
 	    while(1)
 	    {
 	        //cout<<gap<<endl;
