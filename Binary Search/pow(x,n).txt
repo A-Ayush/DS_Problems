@@ -6,8 +6,10 @@ float temp;
         return temp * temp;  
     else
     {  
-        if(y > 0)  
+        if(y > 0){  
             return x * temp * temp;  
-        else
-            return (temp * temp) / x;  
+        }
+        else{
+            return (temp * temp) / x;
+        }
     }  
