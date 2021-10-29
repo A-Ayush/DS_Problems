@@ -1,5 +1,6 @@
 int Solution::solve(vector<int> &A, int B) 
 {
+//sort the array
     sort(A.begin(),A.end());
     long long i=1,j=1000000001,ans=0,l=0;
     while(i<=j)
