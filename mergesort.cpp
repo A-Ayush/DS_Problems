@@ -147,5 +147,3 @@ int main()
 	return 0;
 }
 
-// This code is contributed by Samiksha Hanchate
-
