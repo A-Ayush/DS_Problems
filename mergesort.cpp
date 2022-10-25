@@ -146,5 +146,3 @@ int main()
 	opt_storage(arr,arr_size,tapes);
 	return 0;
 }
-
-//end program
