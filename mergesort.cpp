@@ -1,6 +1,7 @@
 //program for merge sort using recursion
 #include <iostream>
 #define MAX 10
+#define MAXIMUM 1000
 using namespace std;
 void merge(int arr[], int l, int m, int r)
 {
